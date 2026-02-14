@@ -1,47 +1,48 @@
-/* Author: Eduardo de Sá Coêlho Ribeiro Costa */
-/* Github: https://github.com/edudscrc */
+/* Author: Lucas Silva Felz */
+/* Github: https://github.com/lucasfelz */
+/* Modified: Tokyo Night theme */
 /* Waybar v0.12.0 */
 
-@define-color modules_background #282828;
+@define-color modules_background #1a1b26;
 
-@define-color workspaces_button_off #928374;
-@define-color workspaces_button_on #fbf1c7;
+@define-color workspaces_button_off #565f89;
+@define-color workspaces_button_on #c0caf5;
 
-@define-color spotify_idle #b8bb26;
-@define-color spotify_hover #98971a;
+@define-color spotify_idle #9ece6a;
+@define-color spotify_hover #73daca;
 
-@define-color tray_menu #1D2021;
-@define-color tray_menu_border #3c3836;
-@define-color tray_menu_item #ebdbb2;
-@define-color tray_menu_item_hover #ebdbb2;
-@define-color tray_menu_item_hover_background #504945;
+@define-color tray_menu #1a1b26;
+@define-color tray_menu_border #414868;
+@define-color tray_menu_item #a9b1d6;
+@define-color tray_menu_item_hover #c0caf5;
+@define-color tray_menu_item_hover_background #24283b;
 
-@define-color clock_idle #ebdbb2;
-@define-color clock_hover #a89984;
+@define-color clock_idle #a9b1d6;
+@define-color clock_hover #7aa2f7;
 
-@define-color weather_idle #83a598;
-@define-color weather_hover #458588;
+@define-color weather_idle #7dcfff;
+@define-color weather_hover #2ac3de;
 
-@define-color temperature_idle #fe8019;
-@define-color temperature_hover #d65d0e;
+@define-color temperature_idle #ff9e64;
+@define-color temperature_hover #e0af68;
 
-@define-color brightness_idle #fe8019;
-@define-color brightness_hover #d65d0e;
+@define-color brightness_idle #ff9e64;
+@define-color brightness_hover #e0af68;
 
-@define-color sound_idle #fabd2f;
-@define-color sound_hover #d79921;
+@define-color sound_idle #e0af68;
+@define-color sound_hover #ff9e64;
 
-@define-color bluetooth_idle #458488;
-@define-color bluetooth_hover #83a598;
+@define-color bluetooth_idle #7aa2f7;
+@define-color bluetooth_hover #7dcfff;
 
-@define-color network_idle #458488;
-@define-color network_hover #83a598;
+@define-color network_idle #7aa2f7;
+@define-color network_hover #7dcfff;
 
-@define-color power_idle #fb4934;
-@define-color power_hover #cc241d;
+@define-color power_idle #f7768e;
+@define-color power_hover #db4b4b;
 
-@define-color tooltip_background #282828;
-@define-color tooltip_text #ebdbb2;
+@define-color tooltip_background #1a1b26;
+@define-color tooltip_text #a9b1d6;
 
 /*----------------*/
 /*-----GLOBAL-----*/
