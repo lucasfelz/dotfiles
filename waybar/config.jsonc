@@ -1,5 +1,6 @@
-// Author: Eduardo de Sá Coêlho Ribeiro Costa
-// Github: https://github.com/edudscrc
+// Author: Lucas Silva Felz 
+// Github: https://github.com/lucasfelz
+// Modified: Tokyo Night theme
 // Waybar v0.12.0
 {
   "spacing": 0,
@@ -59,10 +60,10 @@
       "mode": "year",
       "mode-mon-col": 3,
       "format": {
-        "months": "<span color='#d79921'><b>{}</b></span>",
-        "days": "<span color='#ebdbb2'><b>{}</b></span>",
-        "weekdays": "<span color='#98971a'><b>{}</b></span>",
-        "today": "<span color='#cc241d'><b><u>{}</u></b></span>"
+        "months": "<span color='#e0af68'><b>{}</b></span>",
+        "days": "<span color='#a9b1d6'><b>{}</b></span>",
+        "weekdays": "<span color='#9ece6a'><b>{}</b></span>",
+        "today": "<span color='#f7768e'><b><u>{}</u></b></span>"
       }
     },
     "actions": {
@@ -135,9 +136,9 @@
   },
   "network": {
     "interval": 60,
-    "format-wifi": " {essid}",
-    "format-ethernet": " {ifname}",
-    "format-disconnected": " disconnected",
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ifname}",
+    "format-disconnected": " disconnected",
     "tooltip-format-ethernet": "{ifname}",
     "tooltip-format-wifi": "{essid}"
   },
@@ -155,18 +156,19 @@
     ]
   },
   "custom/lock": {
-    "format": "",
+    "format": "",
     "tooltip": false,
     "on-click": "hyprlock"
   },
   "custom/reboot": {
-    "format": "",
+    "format": "",
     "tooltip": false,
     "on-click": "systemctl reboot"
   },
   "custom/power": {
-    "format": "",
+    "format": "",
     "tooltip": false,
     "on-click": "systemctl poweroff"
   }
 }
+
