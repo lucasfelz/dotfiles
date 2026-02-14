@@ -1,30 +1,29 @@
-#
-# ~/.bashrc
-#
+# .bashrc
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
 
-alias ls='eza -lsnew'
-alias lsa='eza -lasnew'
-alias vim='nvim'
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
 
-alias minecraft='java -jar ~/games/SKlauncher-3.2.12.jar'
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
 
-# Define color escape sequences
-RESET="\[\e[0m\]"    # Reset color
-BOLD="\[\e[1m\]"     # Bold text
-BLACK="\[\e[30m\]"
-RED="\[\e[31m\]"
-GREEN="\[\e[32m\]"
-YELLOW="\[\e[33m\]"
-BLUE="\[\e[34m\]"
-MAGENTA="\[\e[35m\]"
-CYAN="\[\e[36m\]"
-WHITE="\[\e[37m\]"
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+unset rc
 
-parse_git_branch() {
-    git branch 2>/dev/null | grep '*' | sed 's/* //'
-}
+alias k='kitty'
 
-PS1="[$BLUE\u@\h $CYAN\w$RESET]$MAGENTA\$(parse_git_branch | sed 's/^/  /') $YELLOW\$$RESET "
+PS1='\[\033[01;32m\][\u@\h \W]\$\[\033[00m\] '
