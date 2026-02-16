@@ -87,13 +87,7 @@
       "on-scroll-down": "shift_down"
     }
   },
-  "custom/weather": {
-    "format": "{}",
-    "exec": "~/.config/waybar/assets/venv/bin/python3 ~/.config/waybar/assets/weather.py 2>/dev/null || echo ''",
-    "restart-interval": 300,
-    "return-type": "json",
-    "on-click": "xdg-open https://weather.com"
-  },
+
   "cpu": {
     "interval": 5,
     "format": "󰍛 {usage}%",
