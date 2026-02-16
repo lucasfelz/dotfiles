@@ -1,0 +1,249 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * Waybar - Omarchy Style + Arch Neon (Complete)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * Com CPU, RAM, Volume customizado
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+* {
+  background-color: #0a0e14;
+  color: #00F5FF;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 12px;
+}
+
+window#waybar {
+  background-color: #0a0e14;
+  border-bottom: 2px solid #00F5FF;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * SPACING (Omarchy style)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * WORKSPACES
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+  color: #4d9fff;
+  transition: all 0.2s ease;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#workspaces button.active {
+  color: #00F5FF;
+  font-weight: bold;
+}
+
+#workspaces button:hover {
+  color: #00ff9f;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * ARCH LOGO
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-arch-logo {
+  min-width: 12px;
+  margin: 0 7.5px;
+  font-size: 14px;
+  color: #00F5FF;
+}
+
+#custom-arch-logo:hover {
+  color: #00ff9f;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * CPU & MEMORY
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#cpu {
+  min-width: 12px;
+  margin: 0 7.5px;
+  color: #00ff9f;
+}
+
+#cpu:hover {
+  color: #00F5FF;
+}
+
+#memory {
+  min-width: 12px;
+  margin: 0 7.5px;
+  color: #a78bfa;
+}
+
+#memory:hover {
+  color: #00F5FF;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * VOLUME (Custom)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-volume {
+  min-width: 12px;
+  margin: 0 7.5px;
+  color: #00F5FF;
+}
+
+#custom-volume:hover {
+  color: #00ff9f;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * SPOTIFY
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-spotify {
+  margin: 0 7.5px;
+  color: #00ff9f;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * CLOCK
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#clock {
+  margin-left: 8.75px;
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+#clock:hover {
+  color: #00F5FF;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * WEATHER
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-weather {
+  margin: 0 7.5px;
+  color: #4d9fff;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * BATTERY
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#battery {
+  min-width: 12px;
+  margin: 0 7.5px;
+  color: #00F5FF;
+}
+
+#battery.charging {
+  color: #00ff9f;
+}
+
+#battery.warning {
+  color: #ffcc00;
+}
+
+#battery.critical {
+  color: #ff0080;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * NETWORK & BLUETOOTH
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#bluetooth {
+  margin-right: 17px;
+  color: #4d9fff;
+}
+
+#bluetooth.connected {
+  color: #00F5FF;
+}
+
+#network {
+  margin-right: 13px;
+  color: #4d9fff;
+}
+
+#network.wifi {
+  color: #00F5FF;
+}
+
+#network.disconnected {
+  color: #ff0080;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * TRAY
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#tray {
+  margin-right: 16px;
+}
+
+#custom-expand-icon {
+  margin-right: 18px;
+  color: #4d9fff;
+}
+
+.tray-group-item {
+  color: #00F5FF;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * POWER BUTTONS
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-lock,
+#custom-reboot,
+#custom-power {
+  min-width: 12px;
+  margin: 0 7.5px;
+  color: #ff0080;
+}
+
+#custom-lock:hover,
+#custom-reboot:hover,
+#custom-power:hover {
+  color: #ff1493;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * TOOLTIP
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+tooltip {
+  padding: 8px;
+  background-color: #0a0e14;
+  border: 2px solid #00F5FF;
+  border-radius: 4px;
+}
+
+tooltip label {
+  color: #e0e0e0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * HIDDEN
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.hidden {
+  opacity: 0;
+}

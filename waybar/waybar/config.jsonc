@@ -1,0 +1,195 @@
+// Waybar Config - Hybrid (Omarchy + Tokyo Night) + Arch Neon
+// Author: Lucas Silva Felz
+// Based on: Omarchy + Eduardo Costa configs
+{
+  "spacing": 0,
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+  "modules-left": [
+    "custom/arch-logo",
+    "hyprland/workspaces",
+    "custom/spotify",
+    "tray"
+  ],
+  "modules-center": [
+    "clock",
+    "custom/weather"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "custom/wireplumber",
+    "bluetooth",
+    "network",
+    "battery",
+    "group/group-power"
+  ],
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "active": "󱓻"
+    },
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+  "custom/arch-logo": {
+    "format": "",
+    "on-click": "rofi -show drun",
+    "on-click-right": "kitty",
+    "tooltip-format": "Arch Linux\n\nSuper + D → Rofi\nRight Click → Terminal"
+  },
+  "custom/spotify": {
+    "format": "{}",
+    "exec": "/usr/bin/python3 ~/.config/waybar/assets/mediaplayer.py --player spotify 2>/dev/null || echo ''",
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    "tooltip": true,
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#00F5FF'><b>{}</b></span>",
+        "days": "<span color='#e0e0e0'><b>{}</b></span>",
+        "weeks": "<span color='#00ff9f'><b>W{}</b></span>",
+        "weekdays": "<span color='#4d9fff'><b>{}</b></span>",
+        "today": "<span color='#ff0080'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "custom/weather": {
+    "format": "{}",
+    "exec": "~/.config/waybar/assets/venv/bin/python3 ~/.config/waybar/assets/weather.py 2>/dev/null || echo ''",
+    "restart-interval": 300,
+    "return-type": "json",
+    "on-click": "xdg-open https://weather.com"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "󰍛 {usage}%",
+    "on-click": "kitty -e btop",
+    "tooltip-format": "CPU: {usage}%"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "󰾆 {percentage}%",
+    "tooltip-format": "RAM: {used} / {total} GB ({percentage}%)",
+    "on-click": "kitty -e btop"
+  },
+
+  "custom/wireplumber": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/assets/volume_bar.sh 2>/dev/null || echo '{\"text\":\"󰕾\",\"tooltip\":\"Volume\"}'",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip": true
+  },
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "format-no-controller": "",
+    "tooltip-format": "Connected: {num_connections}",
+    "tooltip-format-connected": "{device_alias}\t{device_address}",
+    "on-click": "kitty -e bluetoothctl",
+    "on-click-right": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
+  },
+  "network": {
+    "interval": 5,
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty -e nmtui"
+  },
+  "battery": {
+    "interval": 5,
+    "format": "{icon}",
+    "format-discharging": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/power",
+      "custom/lock",
+      "custom/reboot"
+    ]
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": true,
+    "tooltip-format": "Shutdown",
+    "on-click": "systemctl poweroff"
+  },
+
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": true,
+    "tooltip-format": "Reboot",
+    "on-click": "systemctl reboot"
+  },
+
+  "custom/lock": {
+    "format": "󰌾",
+    "tooltip": true,
+    "tooltip-format": "Lock",
+    "on-click": "hyprlock"
+  }
+}
+

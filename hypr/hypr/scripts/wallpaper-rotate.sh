@@ -1,0 +1,37 @@
+#!/bin/bash
+# Rotação de Wallpaper - Estilo Omarchy
+
+WALLPAPER_DIR="$HOME/.config/hypr/wallpapers"
+CURRENT_FILE="$HOME/.cache/current-wallpaper"
+
+WALLPAPERS=($(find "$WALLPAPER_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \)))
+
+if [ ${#WALLPAPERS[@]} -eq 0 ]; then
+    notify-send "Nenhum wallpaper encontrado"
+    exit 1
+fi
+
+if [ -f "$CURRENT_FILE" ]; then
+    CURRENT=$(cat "$CURRENT_FILE")
+else
+    CURRENT="${WALLPAPERS[0]}"
+fi
+
+CURRENT_INDEX=0
+for i in "${!WALLPAPERS[@]}"; do
+    if [[ "${WALLPAPERS[$i]}" == "$CURRENT" ]]; then
+        CURRENT_INDEX=$i
+        break
+    fi
+done
+
+NEXT_INDEX=$(( (CURRENT_INDEX + 1) % ${#WALLPAPERS[@]} ))
+NEXT_WALLPAPER="${WALLPAPERS[$NEXT_INDEX]}"
+
+echo "$NEXT_WALLPAPER" > "$CURRENT_FILE"
+
+killall swaybg 2>/dev/null
+sleep 0.1
+swaybg -i "$NEXT_WALLPAPER" -m fill &
+
+notify-send "Wallpaper" "$(basename "$NEXT_WALLPAPER")" -i "$NEXT_WALLPAPER"

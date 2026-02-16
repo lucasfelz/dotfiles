@@ -1,0 +1,279 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * Waybar - Arch Neon (Preto Escuro)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * Author: Lucas Silva Felz (Modificado)
+ * Theme: Arch Neon (baseado em Tokyo Night)
+ * ~/.config/waybar/style.css
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * CORES ARCH NEON
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@define-color bg-primary #0a0e14;      /* Preto muito escuro com tint azul */
+@define-color bg-secondary #1a1f2e;    /* Hover/Secondary */
+
+@define-color neon-bright #00F5FF;     /* Cyan neon (logo Arch) */
+@define-color neon-glow #4d9fff;       /* Azul glow */
+@define-color neon-accent #00ff9f;     /* Verde-azul accent */
+@define-color neon-purple #a78bfa;     /* Roxo suave */
+
+@define-color fg-primary #e0e0e0;      /* Texto principal */
+@define-color fg-secondary #a0a0a0;    /* Texto secundário */
+
+@define-color accent-red #ff0080;      /* Rosa/Vermelho para power */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * GLOBAL
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Monaspace Neon Frozen";
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: @bg-primary;
+  color: @fg-primary;
+  border-bottom: 2px solid @neon-bright;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * WORKSPACES (Hyprland)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#workspaces {
+  margin-left: 8px;
+  margin-right: 16px;
+}
+
+#workspaces button {
+  color: @fg-secondary;
+  background-color: transparent;
+  border: none;
+  padding: 0 8px;
+  margin: 4px 2px;
+  transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+  color: @bg-primary;
+  background-color: @neon-bright;
+  border-radius: 4px;
+  box-shadow: 0 0 10px @neon-bright;
+  transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+  color: @fg-primary;
+  background-color: @bg-secondary;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * MÓDULOS GERAIS
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-spotify,
+#tray,
+#clock,
+#custom-weather,
+#custom-wl-gammarelay-temperature,
+#custom-wl-gammarelay-brightness,
+#custom-wireplumber,
+#bluetooth,
+#network,
+#custom-power,
+#custom-lock,
+#custom-reboot {
+  color: @neon-bright;
+  padding: 0 12px;
+  margin: 4px 2px;
+  transition: all 0.3s ease;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * SPOTIFY
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-spotify {
+  color: @neon-accent;
+}
+
+#custom-spotify:hover {
+  color: @bg-primary;
+  background-color: @neon-accent;
+  border-radius: 4px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * SYSTEM TRAY
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#tray {
+  background-color: transparent;
+}
+
+#tray menu {
+  background-color: @bg-primary;
+  border: 2px solid @neon-bright;
+  border-radius: 4px;
+}
+
+#tray menu menuitem {
+  color: @fg-primary;
+  padding: 4px 8px;
+}
+
+#tray menu menuitem:hover {
+  color: @bg-primary;
+  background-color: @neon-bright;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * CLOCK (com calendário Tokyo Night)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#clock {
+  color: @fg-primary;
+  font-weight: 600;
+}
+
+#clock:hover {
+  color: @neon-bright;
+  background-color: @bg-secondary;
+  border-radius: 4px;
+}
+
+/* Calendário mantém cores Tokyo Night (do seu config) */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * WEATHER
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-weather {
+  color: @neon-glow;
+}
+
+#custom-weather:hover {
+  color: @bg-primary;
+  background-color: @neon-glow;
+  border-radius: 4px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * TEMPERATURA & BRILHO (wl-gammarelay)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-wl-gammarelay-temperature {
+  color: @neon-purple;
+}
+
+#custom-wl-gammarelay-temperature:hover {
+  color: @bg-primary;
+  background-color: @neon-purple;
+  border-radius: 4px;
+}
+
+#custom-wl-gammarelay-brightness {
+  color: @neon-purple;
+}
+
+#custom-wl-gammarelay-brightness:hover {
+  color: @bg-primary;
+  background-color: @neon-purple;
+  border-radius: 4px;
+}
+
+/* Auxiliares (invisíveis) */
+#custom-wl-gammarelay-temperature-aux,
+#custom-wl-gammarelay-brightness-aux {
+  padding: 0;
+  margin: 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * ÁUDIO (wireplumber)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-wireplumber {
+  color: @neon-accent;
+}
+
+#custom-wireplumber:hover {
+  color: @bg-primary;
+  background-color: @neon-accent;
+  border-radius: 4px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * BLUETOOTH
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#bluetooth {
+  color: @neon-glow;
+}
+
+#bluetooth:hover {
+  color: @bg-primary;
+  background-color: @neon-glow;
+  border-radius: 4px;
+}
+
+#bluetooth.off {
+  color: @fg-secondary;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * NETWORK
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#network {
+  color: @neon-glow;
+}
+
+#network:hover {
+  color: @bg-primary;
+  background-color: @neon-glow;
+  border-radius: 4px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * BOTÕES DE POWER (lock, reboot, poweroff)
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-power,
+#custom-lock,
+#custom-reboot {
+  color: @accent-red;
+}
+
+#custom-power:hover,
+#custom-lock:hover,
+#custom-reboot:hover {
+  color: @fg-primary;
+  background-color: @accent-red;
+  border-radius: 4px;
+}
+
+/* Drawer (quando expandido) */
+.not-power {
+  color: @accent-red;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ * TOOLTIP
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+tooltip {
+  background-color: @bg-primary;
+  border: 2px solid @neon-bright;
+  border-radius: 4px;
+}
+
+tooltip label {
+  color: @fg-primary;
+}
